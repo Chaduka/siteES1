@@ -60,8 +60,8 @@
             <i class="fa fa-th-large"></i> <span>Cadastrar Setor</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="general.php"><i class="fa fa-plane"></i> Terminal</a></li>
-            <li><a href="general.php"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li class="active"><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
+            <li><a href="estacionamento.php"><i class="fa fa-car"></i> Estacionamento</a></li>
           </ul>
         </li>
     </section>
