@@ -85,13 +85,13 @@
                 <!-- Numero de Pisos -->
                 <div class="form-group">
                   <label>Numero de Pisos</label>
-                  <input type="number" min="0" class="form-control" name="pisos">
+                  <input type="number" min="0" max="20" class="form-control" name="pisos">
                 </div>
                 <!-- Tipo de Terminal -->
                 <div class="form-group">
                   <label>Tipo de Terminal</label>
                   <select name="tipo" class="form-control">
-                    <option value="null">--</option>
+                    <option value="default">--</option>
                     <option value="Embarque">Embarque</option>
                     <option value="Desembarque">Desembarque</option>
                     <option value="Ambos">Ambos</option>

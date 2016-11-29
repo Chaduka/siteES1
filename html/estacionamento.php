@@ -47,8 +47,8 @@
             <i class="fa fa-th-large"></i> <span>Cadastrar Setor</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
-            <li><a href="#"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
+            <li class="active"><a href="#"><i class="fa fa-car"></i> Estacionamento</a></li>
           </ul>
         </li>
     </section>
@@ -80,71 +80,79 @@
               <h3 class="box-title">Cadastrar Estacionamento</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <form method="POST" action="cadastrarEstacionamento.php">
-                <!-- Quantidade de Veiculos -->
-                <div class="form-group">
-                  <label>Quantidade máxima de veículos</label>
-                  <input type="number" class="form-control" name="lotacao">
-                </div>
-                <!-- Categorias dos Veiculos -->
-                <div class="form-group">
-                  <label>Categorias de Veiculos</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="categoria">Categoria A
-                    </label>
-                    <label>
-                      <input type="checkbox" name="categoria">Categoria B
-                    </label>
-                    <label>
-                      <input type="checkbox" name="categoria">Categoria C
-                    </label>
-                    <label>
-                      <input type="checkbox" name="categoria">Categoria D
-                    </label>
-                    <label>
-                      <input type="checkbox" name="categoria">Categoria E
-                    </label>
+            <form method="POST" action="cadastrarEstacionamento.php">
+              <div class="box-body">
+                  <!-- Quantidade de Veiculos -->
+                  <div class="form-group">
+                    <label>Quantidade máxima de veículos</label>
+                    <input type="number" min="0" class="form-control" name="lotacao">
                   </div>
+                  <!-- Categorias dos Veiculos -->
                 </div>
-
-                <!-- Formas de Pagamento -->
-                <div class="form-group">
-                  <label>Formas de Pagamento</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">Pagamento Manual
-                    </label>
+                <div class="box-body">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Categorias de Veiculos</label>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="categoria[]" value="a">Categoria A
+                        </label>
+                        <label>
+                          <input type="checkbox" name="categoria[]" value="b">Categoria B
+                        </label>
+                        <label>
+                          <input type="checkbox" name="categoria[]" value="c">Categoria C
+                        </label>
+                        <label>
+                          <input type="checkbox" name="categoria[]" value="d">Categoria D
+                        </label>
+                        <label>
+                          <input type="checkbox" name="categoria[]" value="e">Categoria E
+                        </label>
+                      </div><!-- ./checkbox -->
+                    </div><!-- ./form-group -->
+                  </div><!-- ./col -->
+                  
+                <div class="col-md-4">
+                  <!-- Formas de Pagamento -->
+                  <div class="form-group">
+                    <label>Formas de Pagamento</label>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="pagamento[]" value="manual">Pagamento Manual
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="pagamento[]" value="auto">Pagamento Automatico
+                      </label>
+                    </div>
                   </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">Pagamento Automatico
-                    </label>
-                  </div>
-                </div>
+                </div> <!-- ./col -->
 
                 <!-- Terminais de Acesso -->
-                <div class="form-group">
-                  <label>Terminais de Acesso</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">Terminal TE001
-                    </label>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Terminais de Acesso</label>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">Terminal TE001
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">Terminal TE002
+                      </label>
+                    </div>
                   </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">Terminal TE002
-                    </label>
-                  </div>
-                </div>
-                <input class="submit" name="enviar" value="Enviar">
-             </form>
-
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+                </div> <!-- ./col -->
+              </div><!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
+              </div><!-- ./box-footer -->
+            </form>
+          </div><!-- /.box -->
         </div>
         <!--/.col (right) -->
       </div>

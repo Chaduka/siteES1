@@ -90,8 +90,11 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
-
+              <!-- Contador que soma qtde terminal + qtde estacionamento -->
+              <?php
+                include("count.php")
+              ?>
+              <h3><?php echo $total; ?></h3>
               <p>Companhias Aéreas</p>
             </div>
             <div class="icon">
