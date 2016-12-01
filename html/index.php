@@ -90,11 +90,10 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <!-- Contador que soma qtde terminal + qtde estacionamento -->
               <?php
-                include("count.php")
+                include("countComp.php")
               ?>
-              <h3><?php echo $total; ?></h3>
+              <h3><?php echo $num_rows; ?></h3>
               <p>Companhias Aéreas</p>
             </div>
             <div class="icon">
@@ -108,7 +107,11 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>100</h3>
+              <!-- Contador que soma qtde terminal + qtde estacionamento -->
+              <?php
+                include("countSetor.php")
+              ?>
+              <h3><?php echo $total; ?></h3>
 
               <p>Setores do Aeroporto</p>
             </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Grupo18 | Terminal</title>
+  <title>Grupo18 | Alocar Compania Aérea</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -48,7 +48,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
-            <li class="active"><a href="#"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li><a href="estacionamento.php"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li class="active"><a href="#"><i class="fa fa-bookmark"></i> Alocar Compania</a></li>
           </ul>
         </li>
     </section>
@@ -60,12 +61,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Cadastrar Setores
+        Alocar Compania Aérea
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">General Elements</li>
+        <li class="active">Alocar Compania Aérea</li>
       </ol>
     </section>
 
@@ -77,82 +78,29 @@
           <!-- general form elements disabled -->
           <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Cadastrar Estacionamento</h3>
+              <h3 class="box-title">Cadastrar Terminal</h3>
             </div>
             <!-- /.box-header -->
-            <form method="POST" action="cadastrarEstacionamento.php">
-              <div class="box-body">
-                  <!-- Quantidade de Veiculos -->
-                  <div class="form-group">
-                    <label>Quantidade máxima de veículos</label>
-                    <input type="number" min="0" class="form-control" name="lotacao">
-                  </div>
-                  <!-- Categorias dos Veiculos -->
+            <div class="box-body">
+              <form method="POST" action="alocarComp.php">
+                <!-- Nome do Terminal -->
+                <div class="form-group">
+                  <label>Nome do Terminal</label>
+                  <input type="text" class="form-control" name="nomeTerm">
                 </div>
-                <div class="box-body">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Categorias de Veiculos</label>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="categoria[]" value="a">Categoria A
-                        </label>
-                        <label>
-                          <input type="checkbox" name="categoria[]" value="b">Categoria B
-                        </label>
-                        <label>
-                          <input type="checkbox" name="categoria[]" value="c">Categoria C
-                        </label>
-                        <label>
-                          <input type="checkbox" name="categoria[]" value="d">Categoria D
-                        </label>
-                        <label>
-                          <input type="checkbox" name="categoria[]" value="e">Categoria E
-                        </label>
-                      </div><!-- ./checkbox -->
-                    </div><!-- ./form-group -->
-                  </div><!-- ./col -->
-
-                <div class="col-md-4">
-                  <!-- Formas de Pagamento -->
-                  <div class="form-group">
-                    <label>Formas de Pagamento</label>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="pagamento[]" value="manual">Pagamento Manual
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="pagamento[]" value="auto">Pagamento Automatico
-                      </label>
-                    </div>
-                  </div>
-                </div> <!-- ./col -->
-
-                <!-- Terminais de Acesso -->
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>Terminais de Acesso</label>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox">Terminal TE001
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox">Terminal TE002
-                      </label>
-                    </div>
-                  </div>
-                </div> <!-- ./col -->
-              </div><!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancelar</button>
-                <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
-              </div><!-- ./box-footer -->
-            </form>
-          </div><!-- /.box -->
+                <div class="form-group">
+                  <label>Nome da Compania Aérea</label>
+                  <input type="text" class="form-control" name="nomeComp">
+                </div>
+                <div class="form-group">
+                  <label>Quantidade de espaços a serem alocados</label>
+                  <input type="number" min="1" class="form-control" name="espacoComp">
+                </div>
+                <button type="enviar" class="btn btn-block btn-primary">Cadastrar</button>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
         <!--/.col (right) -->
       </div>
@@ -168,7 +116,6 @@
     <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
-
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>

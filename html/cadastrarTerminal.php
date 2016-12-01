@@ -13,9 +13,10 @@ mysql_select_db("setores", $conexao) or die($msg[1]);
 // Inserindo dados
 $pisos = $_POST["pisos"];
 $terminaltipo = $_POST["tipo"];
+$nome = $_POST["nome"];
 $espacos = $_POST["espacos"];
 
-$query = "INSERT INTO terminal VALUES('0', '$pisos', '$terminaltipo', '$espacos', NOW());";
+$query = "INSERT INTO terminal VALUES('0','$nome', '$pisos', '$terminaltipo','$espacos');";
 $resultado = mysql_query($query,$conexao) or die("erro ao inserir no banco".mysql_error());
 echo "<script type=\"text/javascript\"> alert('Cadastrado com sucesso') </script>";
 

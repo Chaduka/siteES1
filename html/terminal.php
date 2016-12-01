@@ -24,6 +24,51 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <script language="javascript" type="text/javascript">
+  function validar() {
+    var nome = terminal.nome.value; //Nome do terminal
+    var tipo = terminal.tipo.value; //Tipo do terminal
+    var pisos = terminal.pisos.value; //Numero de pisos
+    var espacos = terminal.espacos.value; //Numero de espaços máximo do terminal
+
+    //Se nome em branco
+    if (nome == "") {
+      alert('Entre com um nome para o terminal.');
+      terminal.nome.focus();
+    return false;
+    }
+
+    //Se tamanho do nome maior que 255
+    if(nome.length > 255){
+      alert('Insira um nome com até 255 caracteres.');
+      terminal.nome.focus();
+    return false;
+    }
+
+    //Se numero de pisos em branco
+    if(pisos == ""){
+      alert('Insira a quantidade de pisos.');
+      terminal.pisos.focus();
+    return false;
+    }
+
+    //Se tipo do terminal default (--)
+    if(tipo == "default"){
+      alert('Escolha um tipo de terminal.');
+      terminal.tipo.focus();
+    return false;
+    }
+
+    //Se espacos em branco
+    if(espacos == ""){
+      alert('Insira a quantidade máxima de espaços.');
+      terminal.tipo.focus();
+    return false;
+    }
+  }
+  </script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -31,9 +76,9 @@
     include("header.php")
   ?>
   <!-- Left side column. contains the logo and sidebar -->
+  <section class="sidebar">
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
@@ -65,7 +110,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">General Elements</li>
+        <li class="active">Terminal</li>
       </ol>
     </section>
 
@@ -81,11 +126,16 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form method="POST" action="cadastrarTerminal.php">
+              <form name="terminal" method="POST" action="cadastrarTerminal.php">
+                <!-- Nome do Terminal -->
+                <div class="form-group">
+                  <label>Nome do Terminal</label>
+                  <input type="text" class="form-control" name="nome">
+                </div>
                 <!-- Numero de Pisos -->
                 <div class="form-group">
                   <label>Numero de Pisos</label>
-                  <input type="number" min="0" max="20" class="form-control" name="pisos">
+                  <input type="number" min="1" max="20" class="form-control" name="pisos">
                 </div>
                 <!-- Tipo de Terminal -->
                 <div class="form-group">
@@ -97,12 +147,11 @@
                     <option value="Ambos">Ambos</option>
                   </select>
                 </div>
-                <!-- Quantidade de Espaço -->
                 <div class="form-group">
-                  <label>Quantidade de espaços</label>
-                  <input type="number" min="0" class="form-control" name="espacos">
+                  <label>Quantidade máxima de espaços no Terminal</label>
+                  <input type="number" min="1" class="form-control" name="espacos">
                 </div>
-                <button type="enviar" class="btn btn-block btn-primary">Cadastrar</button>
+                <button type="enviar" class="btn btn-block btn-primary" onclick="return validar()">Cadastrar</button>
             </div>
             <!-- /.box-body -->
           </div>
