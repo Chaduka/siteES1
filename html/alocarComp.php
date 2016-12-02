@@ -11,43 +11,17 @@ $conexao = mysql_pconnect("localhost","root","chady123") or die($msg[0]);
 mysql_select_db("setores", $conexao) or die($msg[1]);
 
 // Inserindo dados
-$nome_terminal = $_POST["nomeTerm"];
-$nome_comp = $_POST["nomeComp"];
+$nome = $_POST["nomeTerm"]; //Nome recolhido da entrada do usuario - retornando um id
+$nome_terminal = mysql_query("SELECT nome FROM terminal WHERE codTerm = '$nome'"); //Procurando pelo nome através do id
+$row = mysql_fetch_assoc($nome_terminal);
+$terminal = $row["nome"];
 
-//Procurando se o nome do terminal existe - cadastrado.
-
-$qtde_espacos = mysql_query("SELECT qtdeEspacos FROM terminal WHERE nome = '$nome_terminal'");
-$search_terminal = mysql_query("SELECT * FROM terminal WHERE nome = '$nome_terminal'");
-$search_comp = mysql_query("SELECT * FROM espacos WHERE nomeCompania = '$nome_comp'");
-
-//Quantidade de espaco existente no terminal
-$row = mysql_fetch_assoc($qtde_espacos);
-if($row["qtdeEspacos"] < $_POST["espacoComp"]){
-  echo "<script type=\"text/javascript\"> alert('Espaco insuficiente') </script>";
-}
-else{
-  echo 'Espaco suficiente';
-}
-
-//Verifica se o terminal esta cadastrado
-if(@mysql_num_rows($search_terminal) > 0){
-  echo 'Este terminal existe  ';
-}
-else{
-  echo 'Este terminal nao existe';
-}
-
-//Verifica se a companhia existe
-if(@mysql_num_rows($search_comp) > 0){
-  echo 'Esta Compania existe';
-}
-else{
-  echo 'Esta Compania nao existe';
-}
+$nome_comp = $_POST["nomeComp"]; //Nome compania
+$qtde_espacos = $_POST["espacoComp"]; //Quantidade de espaco compania
 
 
-//$query = "INSERT INTO espacos VALUES('0','$nome_terminal', '$nome_comp');";
-//$resultado = mysql_query($query,$conexao) or die("erro ao inserir no banco".mysql_error());
-//echo "<script type=\"text/javascript\"> alert('Cadastrado com sucesso') </script>";
+$query = "INSERT INTO espacos VALUES('0','$terminal', '$nome_comp','$qtde_espacos','1');";
+$resultado = mysql_query($query,$conexao) or die("erro ao inserir no banco".mysql_error());
+echo "<script type=\"text/javascript\"> alert('Cadastrado com sucesso') </script>";
 
 ?>

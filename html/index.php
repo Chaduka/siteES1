@@ -62,6 +62,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
             <li><a href="estacionamento.php"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li><a href="compaerea.php"><i class="fa fa-bookmark"></i> Alocar Compania</a></li>
           </ul>
         </li>
     </section>
@@ -90,11 +91,11 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <?php
-                include("countComp.php")
-              ?>
+              <form method="post" action="index.php">
+              <?php include("countComp.php"); ?>
               <h3><?php echo $num_rows; ?></h3>
               <p>Companhias Aéreas</p>
+              </form>
             </div>
             <div class="icon">
               <i class="ion ion-plane"></i>

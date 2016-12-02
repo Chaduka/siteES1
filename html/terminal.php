@@ -76,8 +76,8 @@
     include("header.php")
   ?>
   <!-- Left side column. contains the logo and sidebar -->
-  <section class="sidebar">
   <aside class="main-sidebar">
+    <section class="sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
@@ -94,6 +94,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="#"><i class="fa fa-plane"></i> Terminal</a></li>
             <li><a href="estacionamento.php"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li><a href="compaerea.php"><i class="fa fa-bookmark"></i> Alocar Compania</a></li>
           </ul>
         </li>
     </section>

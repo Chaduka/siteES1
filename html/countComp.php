@@ -9,7 +9,9 @@ $conexao = mysql_pconnect("localhost","root","chady123") or die($msg[0]);
 // Selecionando o banco de dados
 mysql_select_db("setores", $conexao) or die($msg[1]);
 
+$nome = "EASEsae";
+
 // Inserindo dados
-$result = mysql_query("SELECT * FROM companiaarea", $conexao);
+$result = mysql_query("SELECT DISTINCT nomeCompania FROM espacos WHERE nomeTerminal = '$nome'", $conexao);
 $num_rows = mysql_num_rows($result);
 ?>

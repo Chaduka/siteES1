@@ -24,6 +24,27 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <script language="javascript" type="text/javascript">
+  function validar() {
+    var lotacao = estacionamento.lotacao.value; //Lotacao do estacionamento
+    var aChk = document.getElementsByName("categoria");
+    var check = 0;
+    //var categoria = estacionamento.categoria.value; //Categorias que podem adentrar o estacionamento
+
+    //Se lotacao em branco
+    if (lotacao == "") {
+      alert('Insira a quantidade máxima de veículos.');
+      estacionamento.lotacao.focus();
+    return false;
+    }
+    else if(lotacao > 9999){
+      alert('Insira uma lotação com até 4 digitos.');
+      estacionamento.lotacao.focus();
+      return false;
+    }
+}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -49,6 +70,7 @@
           <ul class="treeview-menu">
             <li><a href="terminal.php"><i class="fa fa-plane"></i> Terminal</a></li>
             <li class="active"><a href="#"><i class="fa fa-car"></i> Estacionamento</a></li>
+            <li><a href="compaerea.php"><i class="fa fa-bookmark"></i> Alocar Compania</a></li>
           </ul>
         </li>
     </section>
@@ -80,7 +102,7 @@
               <h3 class="box-title">Cadastrar Estacionamento</h3>
             </div>
             <!-- /.box-header -->
-            <form method="POST" action="cadastrarEstacionamento.php">
+            <form name="estacionamento" method="POST" action="cadastrarEstacionamento.php">
               <div class="box-body">
                   <!-- Quantidade de Veiculos -->
                   <div class="form-group">
@@ -134,22 +156,24 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label>Terminais de Acesso</label>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox">Terminal TE001
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox">Terminal TE002
-                      </label>
-                    </div>
+                    <br>
+                    <?php
+                    include("count.php");
+
+                    while($array = mysql_fetch_array($result_est)){
+                        $id = $array['nome'];
+                        $name = "Terminal ".$id;
+                    ?>
+                    <input type="checkbox" name="categorias[]" value="<?php echo $codEst; ?>" /> <?php echo $name; ?> <br />
+
+                <?php } ?>
+                <br /><br />
+
                   </div>
                 </div> <!-- ./col -->
               </div><!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancelar</button>
-                <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
+                <button type="enviar" class="btn btn-block btn-primary" onclick="return validar()">Cadastrar</button>
               </div><!-- ./box-footer -->
             </form>
           </div><!-- /.box -->

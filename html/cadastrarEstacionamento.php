@@ -15,6 +15,7 @@ $lotacao = $_POST["lotacao"];
 //Tipos de Veiculos que podem adentrar o estacionamento
 if(isset($_POST['categoria'])){
     $listaCheckbox = $_POST['categoria'];
+
     foreach ($listaCheckbox as $categoria) {
         //Categoria A - Motocicleta, motociclo e similares.
         if($categoria == 'a'){
@@ -52,7 +53,6 @@ if(isset($_POST['pagamento'])){
       $pagamento_auto = 1;
     }
   }
-
 }
 
 $query = "INSERT INTO estacionamento VALUES('0', '$lotacao','$categoria_a','$categoria_b', '$categoria_c', '$categoria_d', '$categoria_e', '$pagamento_manual', '$pagamento_auto');";

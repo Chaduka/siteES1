@@ -24,6 +24,19 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <script language="javascript" type="text/javascript">
+  function validar() {
+    var qtde = comp.espacoComp.value; //Quantidade a ser alocada
+
+    //Se qtde em branco
+    if (qtde == "") {
+      alert('Entre com a quantidade de espacos a serem alocados.');
+      comp.espacoComp.focus();
+    return false;
+    }
+  }
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -82,21 +95,32 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form method="POST" action="alocarComp.php">
+              <form name="comp" method="POST" action="alocarComp.php">
                 <!-- Nome do Terminal -->
                 <div class="form-group">
-                  <label>Nome do Terminal</label>
-                  <input type="text" class="form-control" name="nomeTerm">
+                  <label>Terminal</label>
+                  <select name="nomeTerm" class="form-control">
+                    <?php
+                    include("connectComp.php");
+                    while($prod = mysql_fetch_array($search_terminal)) { ?>
+                     <option value="<?php echo $prod['codTerm'] ?>"><?php echo $prod['nome'] ?></option>
+                     <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label>Nome da Compania Aérea</label>
-                  <input type="text" class="form-control" name="nomeComp">
+                  <select name="nomeComp" class="form-control">
+                    <?php
+                    while($prod = mysql_fetch_array($search_comp)) { ?>
+                     <option value="<?php echo $prod['nomeCompania'] ?>"><?php echo $prod['nomeCompania'] ?></option>
+                     <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label>Quantidade de espaços a serem alocados</label>
                   <input type="number" min="1" class="form-control" name="espacoComp">
                 </div>
-                <button type="enviar" class="btn btn-block btn-primary">Cadastrar</button>
+                <button type="enviar" class="btn btn-block btn-primary" onclick="return validar()">Cadastrar</button>
             </div>
             <!-- /.box-body -->
           </div>
